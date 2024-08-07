@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../services/api.service';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-posts-table',
@@ -7,18 +8,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./posts-table.component.scss']
 })
 export class PostsTableComponent implements OnInit {
-  posts: any = [];
+  posts: Post[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/posts')
-      .subscribe(data => {
-        this.posts = data;
-      });
+    this.apiService.getPosts().subscribe((data: Post[]) => {
+      this.posts = data;
+    });
   }
 
   sortPosts(prop: string) {
-    this.posts = this.posts.sort((a: { [x: string]: number; }, b: { [x: string]: number; }) => (a[prop] > b[prop]) ? 1 : (b[prop] > a[prop] ? -1 : 0));
+    this.posts = [...this.posts.sort((a, b) => (a[prop] > b[prop]) ? 1 : (b[prop] > a[prop] ? -1 : 0))];
   }
+
 }
