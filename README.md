@@ -1,27 +1,61 @@
-# PaddyPost
+# PaddyPost - Angular Sortable and Paginable Table
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+PaddyPost is an Angular application that displays posts fetched from the JSONPlaceholder API in a table that users can sort and paginate. The table allows users to adjust the number of records displayed per page and includes a search functionality to filter posts by any keyword present in the post fields.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Fetch and display posts**: Utilizes JSONPlaceholder API to fetch and display posts.
+- **Sortable columns**: Users can sort posts by ID, Title, or Content by clicking on the respective column headers.
+- **Search functionality**: Includes a search input to filter posts based on user input.
+- **Adjustable pagination**: Allows users to choose how many records to display per page (options include 10, 20, 30, 40, 50, 100, or All).
+- **Responsive design**: Ensures the table is responsive and functional across different device sizes.
 
-## Code scaffolding
+## Project Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+Make sure you have the following installed before you proceed:
+- Node.js
+- Angular CLI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+Follow these steps to get your development environment running:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/GeorgePadmore/paddy-post.git
+   ```
 
-## Running end-to-end tests
+2. Change directory to the project folder:
+   ```bash
+   cd paddy-post
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Install required packages:
+   ```bash
+   npm install
+   ```
+   
+4. Running the Application. To run the application on your local machine:
+   ```bash
+   ng serve
+   ```
+   
+### Usage
 
-## Further help
+- Sorting: Click on the headers of the ID, Title, or Content columns to sort the data.
+- Filtering: Type into the search box at the top of the table to filter posts.
+- Pagination: Use the dropdown on the right side of the search box to select the number of records to show per page.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+### Code Structure
+
+- **app/posts-table**: Contains the PostsTableComponent that handles the table display, sorting, filtering, and pagination.
+- **app/services/api.service.ts**: Manages fetching data from the JSONPlaceholder API.
+- **app/models/post.model.ts**: Provides a model for the type definition of Post.
+
+
+### Authur
+
+- George Padmore Yeboah
