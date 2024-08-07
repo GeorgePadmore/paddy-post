@@ -1,5 +1,20 @@
 <div class="table-responsive">
-    <input type="text" placeholder="Search posts..." #searchInput (input)="filterPosts(searchInput.value)" class="search-input">
+    <div class="table-controls">
+        <input type="text" placeholder="Search posts..." #searchInput (input)="filterPosts(searchInput.value)" class="search-input">
+        <div>
+          <label for="pageSizeSelect">Show:</label>
+          <select id="pageSizeSelect" #pageSizeInput (change)="updatePageSize(pageSizeInput.value)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="all">All</option>
+          </select>
+          records
+        </div>
+    </div>
   
     <table>
       <thead>
@@ -17,4 +32,11 @@
         </tr>
       </tbody>
     </table>
+  
+    <!-- Pagination Controls and Info -->
+    <div class="pagination">
+      <button (click)="setPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="setPage(currentPage + 1)" [disabled]="currentPage >= totalPages">Next</button>
+    </div>
   </div>

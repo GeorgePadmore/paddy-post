@@ -5,6 +5,30 @@
   box-sizing: border-box;
 }
 
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .search-input {
+    flex-grow: 1;
+    padding: 8px;
+    margin-right: 10px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-right: 5px;
+    }
+  }
+}
+
+
 .table-responsive {
   overflow-x: auto;
 
@@ -29,9 +53,49 @@
     }
   }
 
+  .pagination-info, select, label {
+    margin-top: 10px;
+  }
+
+  select {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
   @media (max-width: 768px) {
     table {
       display: block;
     }
+  }
+}
+
+
+.pagination-info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    align-self: center;
   }
 }
